@@ -1,0 +1,66 @@
+{
+  "name": "@canyou/core",
+  "version": "0.0.1",
+  "description": "are you allowed to?",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Odee <odjhey@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "authorization",
+    "auth"
+  ],
+  "scripts": {
+    "start": "node -r ts-node/register src/index.ts",
+    "start:watch": "nodemon src/index.ts",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint 'src/**/*'",
+    "build": "tsc --build tsconfig.json",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "prepare": "npm run build --silent",
+    "happy": "npm run format && npm run lint && npm run test",
+    "prepublishOnly": "npm test",
+    "preversion": "npm run format && npm run lint",
+    "version": "npm run test && npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "release": "npm run format && npm run lint && npm run test && standard-version",
+    "release:beta": "npm run format && npm run lint && npm run test && standard-version -p beta"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/odjhey/canyou.git"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "devDependencies": {
+    "@types/jest": "^25.1.4",
+    "@types/node": "^13.9.1",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-import": "^2.20.2",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "jest-coverage-badges": "^1.1.2",
+    "nodemon": "^2.0.2",
+    "prettier": "^1.19.1",
+    "standard-version": "^7.1.0",
+    "ts-jest": "^25.2.1",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run happy"
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/odjhey/canyou/issues"
+  },
+  "homepage": "https://github.com/odjhey/canyou#readme",
+  "dependencies": {}
+}
