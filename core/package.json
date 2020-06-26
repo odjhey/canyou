@@ -1,6 +1,6 @@
 {
   "name": "@canyou/core",
-  "version": "0.0.1",
+  "version": "0.0.2-beta.0",
   "description": "are you allowed to?",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
