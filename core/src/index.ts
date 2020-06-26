@@ -38,7 +38,7 @@ const isAuthorized: (
   const rulesWithSubjectMatch = filteredRulesByOperation.filter((rule) => {
     //FIELD
     if (rule.subjectProvider === PROVIDERS.FIELD) {
-      const hasFieldMatch = rule.subjectRef.reduce((subAccu, sub, sidx) => {
+      const hasFieldMatch = rule.subjectRef.reduce((subAccu, sub) => {
         //compare properties of object and subject based on specified FIELD
         if (subject[sub] && object[sub]) {
           return subject[sub] === object[sub] || subAccu
